@@ -26,11 +26,11 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded());
 //this will od the same thing we did in body parser, so the requet will be logged and its body will be parsed and put into req.body
-app.use(storeRouter);
-app.use("/host", hostRouter);
+
 
 app.use(express.static(path.join(rootDir, "public")));
-
+app.use(storeRouter);
+app.use("/host", hostRouter);
 app.use(errorsController.pageNotFound);
 
 const PORT = 3000;
